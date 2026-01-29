@@ -1,6 +1,6 @@
-import app from './app';
-import { env } from './config/env';
-import { connectDatabase } from './config/database';
+import app from "./app";
+import { env } from "./config/env";
+import { connectDatabase } from "./config/database";
 
 const startServer = async (): Promise<void> => {
   try {
@@ -21,21 +21,23 @@ const startServer = async (): Promise<void> => {
       `);
     });
   } catch (error) {
-    console.error('Failed to start server:', error);
+    console.error("Failed to start server:", error);
     process.exit(1);
   }
 };
 
 // Handle unhandled promise rejections
-process.on('unhandledRejection', (reason: Error) => {
-  console.error('Unhandled Rejection:', reason);
+process.on("unhandledRejection", (reason: Error) => {
+  console.error("Unhandled Rejection:", reason);
   process.exit(1);
 });
 
 // Handle uncaught exceptions
-process.on('uncaughtException', (error: Error) => {
-  console.error('Uncaught Exception:', error);
+process.on("uncaughtException", (error: Error) => {
+  console.error("Uncaught Exception:", error);
   process.exit(1);
 });
 
 startServer();
+
+export default startServer;
